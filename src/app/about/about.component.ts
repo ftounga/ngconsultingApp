@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  max = 100;
+  showWarning: boolean;
+  dynamic = 0;
+  type: string;
 
-  ngOnInit() {
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    this.type = 'success';
+    const timerId = setInterval(() => {
+      if (this.dynamic < 90) {
+        this.dynamic = this.dynamic + 1;
+      }
+    }, 50);
+    setTimeout(() => {
+      clearInterval(timerId);
+    }, 10000);
   }
 
 }

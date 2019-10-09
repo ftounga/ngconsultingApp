@@ -8,8 +8,10 @@ import {BlogComponent} from './blog/blog.component';
 import { HeaderComponent } from './header/header.component';
 import { TutorielsComponent } from './tutoriels/tutoriels.component';
 import { AboutComponent } from './about/about.component';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'tutoriels', component: TutorielsComponent},
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ProgressbarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

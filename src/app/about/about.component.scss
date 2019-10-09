@@ -10,3 +10,26 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+h4{
+  font-size: 16px;
+  color: #333;
+  font-family: raleway,sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+h2{
+  font-size: 20px;
+  color: #333;
+  font-family: raleway,sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.progress.active .progress-bar {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
