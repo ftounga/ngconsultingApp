@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { TutorielsComponent } from './tutoriels/tutoriels.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import {CommonModule} from '@angular/common';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     AboutComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     MDBBootstrapModule.forRoot(),
