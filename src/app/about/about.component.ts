@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Competence} from '../model/competence.model';
+import {ScrollEvent} from 'ngx-scroll-event';
 
 @Component({
   selector: 'app-about',
@@ -30,7 +31,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.type = 'success';
-    this.competences.forEach(competence => this.animateProgressBarSkill(competence));
   }
 
   getLanguageSkill(): Competence[] {
@@ -42,12 +42,11 @@ export class AboutComponent implements OnInit {
   }
 
   animateProgressBarSkill(competence: Competence): void {
-    const skillValue = competence.value;
-    competence.value = 0;
+    competence.progress = 0;
 
     const timerId = setInterval(() => {
-      if (competence.value < skillValue) {
-        competence.value = competence.value + 1;
+      if (competence.progress < competence.value) {
+        competence.progress = competence.progress + 1;
       }
     }, 30);
     setTimeout(() => {
@@ -55,4 +54,7 @@ export class AboutComponent implements OnInit {
     }, 10000);
   }
 
+  triggerSkillProgressbar($event: ScrollEvent) {
+    this.competences.forEach(competence => this.animateProgressBarSkill(competence));
+  }
 }

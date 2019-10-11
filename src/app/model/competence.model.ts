@@ -3,7 +3,8 @@ export class Competence {
   public idUser: number;
   public skill: string;
   public value: number;
-  public type: string
+  public type: string;
+  public progress: number;
 
   constructor(skill: string, type: string, value: number){
     this.skill = skill;

@@ -10,6 +10,7 @@ import { TutorielsComponent } from './tutoriels/tutoriels.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import {CommonModule} from '@angular/common';
+import {ScrollEventModule} from 'ngx-scroll-event';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
+    ScrollEventModule,
     RouterModule.forRoot(appRoutes),
     MDBBootstrapModule.forRoot(),
     ProgressbarModule.forRoot()
