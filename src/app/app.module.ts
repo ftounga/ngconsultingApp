@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import {CommonModule} from '@angular/common';
 import {ScrollEventModule} from 'ngx-scroll-event';
+import { ExperiencesComponent } from './experiences/experiences.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     BlogComponent,
     HeaderComponent,
     TutorielsComponent,
-    AboutComponent
+    AboutComponent,
+    ExperiencesComponent
   ],
   imports: [
     CommonModule,
