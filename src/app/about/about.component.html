@@ -59,26 +59,27 @@
   </div>
   <br><br>
 
-  <div detect-scroll class="row ml-5 mr-5 mt-4" (onScroll)="triggerSkillProgressbar($event)" [bottomOffset]="0" [topOffset]="600" >
-    <div class="col-md-5 offset-md-1">
+  <div detect-scroll class="row ml-5 mr-5 mt-4" (onScroll)="triggerSkillProgressbar($event)" [bottomOffset]="0"
+       [topOffset]="600">
+    <div class="col-md-4 offset-md-2">
       <div class="d-flex flex-column">
         <div class="mx-auto"><h2 style="color: #2e6da4" class="display-5"><strong>Languages et Frameworks</strong></h2>
         </div>
         <div class="mt-4" *ngFor="let competence of getLanguageSkill()">
           <div><h4 style="color: #2e6da4" class="display-5"><strong>{{competence.skill}}</strong></h4></div>
-          <progressbar style="height: 30px;" [max]=100 [value]=competence.progress type="success">
+          <progressbar style="height: 10px;" [max]=100 [value]=competence.progress type="success">
             <span class="text-nowrap">{{competence.value}}%</span>
           </progressbar>
         </div>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div class="d-flex flex-column">
         <div class="mx-auto"><h2 style="color: #2e6da4" class="display-5"><strong>Outils</strong></h2></div>
 
         <div class="mt-4" *ngFor="let competence of getOutilSkill()">
           <div><h4 style="color: #2e6da4" class="display-5"><strong>{{competence.skill}}</strong></h4></div>
-          <progressbar style="height: 30px;" [max]=100 [value]=competence.progress type="success">
+          <progressbar style="height: 10px;" [max]=100 [value]=competence.progress type="success">
             <span class="text-nowrap">{{competence.value}}%</span>
           </progressbar>
         </div>
