@@ -8,10 +8,6 @@ import {ScrollEvent} from 'ngx-scroll-event';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-
-  max = 100;
-  showWarning: boolean;
-  dynamic = 0;
   type: string;
 
   competences: Competence[] = [
