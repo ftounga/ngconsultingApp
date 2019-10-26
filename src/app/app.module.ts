@@ -12,13 +12,15 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import {CommonModule} from '@angular/common';
 import {ScrollEventModule} from 'ngx-scroll-event';
 import { ExperiencesComponent } from './experiences/experiences.component';
+import { ContactComponent } from './contact/contact.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'tutoriels', component: TutorielsComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     TutorielsComponent,
     AboutComponent,
-    ExperiencesComponent
+    ExperiencesComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
