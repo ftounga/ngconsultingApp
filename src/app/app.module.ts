@@ -13,12 +13,14 @@ import {CommonModule} from '@angular/common';
 import {ScrollEventModule} from 'ngx-scroll-event';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { ContactComponent } from './contact/contact.component';
+import { FormationsComponent } from './formations/formations.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'tutoriels', component: TutorielsComponent},
+  {path: 'formations', component: FormationsComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent}
 ];
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     TutorielsComponent,
     AboutComponent,
     ExperiencesComponent,
-    ContactComponent
+    ContactComponent,
+    FormationsComponent
   ],
   imports: [
     CommonModule,
