@@ -12,7 +12,7 @@
           <br>
         </div>
         <ul class="timeline">
-          <li *ngFor="let article of articles; let i = index" [ngClass]="{'timeline-inverted':i%2==0}">
+          <li *ngFor="let article of articles; let i = index" [ngClass]="{'timeline-inverted':i%2==0}" >
             <div class="timeline-badge warning">
               <mdb-icon fas icon="blog"></mdb-icon>
             </div>
@@ -24,7 +24,7 @@
                   {{article.dateCreation}} via Twitter</small></p>
               </div>
               <div class="timeline-body">
-                <img [src]="article.url"  style="width: 400px; height: 200px;">
+                <a [href]="article.location" ><img [src]="article.urlImg" style="width: 400px; height: 200px;"></a>
                 <p>{{article.preview}}</p>
               </div>
             </div>

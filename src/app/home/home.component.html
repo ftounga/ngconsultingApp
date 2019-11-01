@@ -287,7 +287,7 @@
                     {{article.dateCreation}} via Twitter</small></p>
                 </div>
                 <div class="timeline-body">
-                  <img [src]="article.url"  style="width: 400px; height: 200px;">
+                  <a [href]="article.location" ><img [src]="article.urlImg" style="width: 400px; height: 200px;"></a>
                   <p>{{article.preview}}</p>
                 </div>
               </div>
