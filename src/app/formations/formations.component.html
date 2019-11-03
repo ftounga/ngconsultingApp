@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <video width="1200" height="400" autoplay>
+    <video #videoPlayer id="intro" width="1200" height="400" autoplay>
       <source src="/assets/img/jingle-video.mp4" type="video/mp4">
       <source src="movie.ogg" type="video/ogg">
       Your browser does not support the video tag.
@@ -108,3 +108,7 @@
     </div>
   </div>
 </div>
+<script>
+    var vid = document.getElementById("intro");
+    vid.volume = 0.2;
+</script>

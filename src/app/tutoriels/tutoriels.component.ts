@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TutorielService} from '../services/tutoriel.service';
+import {Tutoriel} from '../model/tutoriel.model';
 
 @Component({
   selector: 'app-tutoriels',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorielsComponent implements OnInit {
 
-  constructor() { }
+  tutoriels: Tutoriel [];
+
+  constructor(private tutorielService: TutorielService) {
+
+    this.tutoriels = tutorielService.getAllTutoriels();
+  }
 
   ngOnInit() {
+  }
+
+  getAvailableTutoriels(): Tutoriel[] {
+    return this.tutoriels.filter( tutoriel => tutoriel.location != null);
+  }
+
+  getNotAvailableTutoriels(): Tutoriel[] {
+    return this.tutoriels.filter( tutoriel => tutoriel.location == null);
   }
 
 }

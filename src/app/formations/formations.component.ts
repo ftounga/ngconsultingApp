@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-formations',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formations.component.scss']
 })
 export class FormationsComponent implements OnInit {
+  @ViewChild('videoPlayer') videoplayer: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.videoplayer.nativeElement.volume = 0.1;
   }
 
 }

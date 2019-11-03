@@ -1,16 +1,13 @@
-export class Article {
+import {Item} from './item.model';
 
-  public title: string;
-  public urlImg: string;
+export class Article  extends Item {
+
   public preview: string;
-  public location: string;
   public dateCreation: Date;
 
   constructor(title: string, url: string, preview: string, location: string, dateCreation: Date) {
-    this.title = title;
-    this.urlImg = url;
+    super(title, url, location);
     this.preview = preview;
-    this.location = location;
     this.dateCreation =  dateCreation;
   }
 }
