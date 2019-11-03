@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormationService} from '../services/formation.service';
+import {Formation} from '../model/formation.model';
 
 @Component({
   selector: 'app-formations',
@@ -8,7 +10,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 export class FormationsComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: any;
 
-  constructor() { }
+  formations: Formation [];
+
+  constructor(private formationService: FormationService) {
+    this.formations = formationService.getAllFormation();
+  }
 
   ngOnInit() {
     this.videoplayer.nativeElement.volume = 0.1;

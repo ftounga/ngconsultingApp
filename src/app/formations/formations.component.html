@@ -9,16 +9,16 @@
   </div>
 <br><br><br>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-3 col-md-4 pb-5">
-      <div class="card z-depth-3 rounded available">
+  <div class="row pb-5">
+    <div class="col-lg-3 col-md-4" *ngFor="let formation of formations" mdbTooltip="{{formation.chapterCount}} chapitres" placement="top">
+      <div class="card z-depth-3 rounded available" [ngClass]="{'available':formation.location!='', 'unavailable':formation.location==''}">
 
         <!-- Card image -->
         <div class="view overlay">
           <img class="card-img-top animated wow fadeInLeft" data-wow-delay="1s" style="height:150px;"
-               src="/assets/img/java-8.png"
+               [src]="formation.urlImg"
                alt="Card image cap">
-          <a href="#!">
+          <a [href]="formation.location">
             <div class="mask flex-center rgba-blue-light">
             </div>
           </a>
@@ -28,79 +28,8 @@
         <div class="card-body">
 
           <!-- Title -->
-          <h4 class="card-title">Nouveautés Java 8</h4>
-
-        </div>
-
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="card z-depth-3 rounded available">
-
-        <!-- Card image -->
-        <div class="view overlay">
-          <img class="card-img-top animated wow fadeInRight" data-wow-delay="1s" style="height: 150px;"
-               src="assets/img/ssl.png"
-               alt="Card image cap">
-          <a href="#!">
-            <div class="mask flex-center rgba-blue-light">
-            </div>
-          </a>
-        </div>
-
-        <!-- Card content -->
-        <div class="card-body">
-
-          <!-- Title -->
-          <h4 class="card-title">Protocole TLS/SSL</h4>
-
-        </div>
-
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="card z-depth-3 rounded available">
-
-        <!-- Card image -->
-        <div class="view overlay">
-          <img class="card-img-top animated wow fadeInLeft" data-wow-delay="1s" style="height: 150px;"
-               src="/assets/img/elasticsearch.png"
-               alt="Card image cap">
-          <a href="#!">
-            <div class="mask flex-center rgba-blue-light">
-            </div>
-          </a>
-        </div>
-
-        <!-- Card content -->
-        <div class="card-body">
-
-          <!-- Title -->
-          <h4 class="card-title">Elasticsearch</h4>
-
-        </div>
-
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="card z-depth-3 rounded available">
-
-        <!-- Card image -->
-        <div class="view overlay">
-          <img class="card-img-top animated wow fadeInRight" data-wow-delay="1s" style="height: 155px;"
-               src="/assets/img/jwt.png"
-               alt="Card image cap">
-          <a href="#!">
-            <div class="mask flex-center rgba-blue-light">
-            </div>
-          </a>
-        </div>
-
-        <!-- Card content -->
-        <div class="card-body">
-
-          <!-- Title -->
-          <h4 class="card-title">Authentification JWT</h4>
+          <h4 class="card-title">{{formation.title}}</h4>
+          <h6>{{formation.totalMinutes}} minutes</h6>
 
         </div>
 
