@@ -1,0 +1,23 @@
+<div class="row pb-5">
+  <div class="col-lg-4 col-md-4" *ngFor="let chapter of chapters" mdbTooltip="{{chapter.duration}} chapitres" placement="top">
+    <div class="card z-depth-3 rounded available">
+
+      <!-- Card image -->
+      <div >
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9UYMwwXR8tQ" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">{{chapter .title}}</h4>
+        <p>{{chapter.preview}} minutes</p>
+
+      </div>
+
+    </div>
+  </div>
+</div>

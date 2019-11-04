@@ -14,13 +14,16 @@ import {ScrollEventModule} from 'ngx-scroll-event';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormationsComponent } from './formations/formations.component';
+import { FormationDetailsComponent } from './formation-details/formation-details.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'tutoriels', component: TutorielsComponent},
-  {path: 'formations', component: FormationsComponent},
+  {path: 'formations/:id', component: FormationsComponent, children: [
+      {path: 'details', component: FormationDetailsComponent}
+    ]},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent}
 ];
@@ -35,7 +38,8 @@ const appRoutes: Routes = [
     AboutComponent,
     ExperiencesComponent,
     ContactComponent,
-    FormationsComponent
+    FormationsComponent,
+    FormationDetailsComponent
   ],
   imports: [
     CommonModule,
