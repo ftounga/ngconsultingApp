@@ -7,8 +7,8 @@ export class Formation extends Item {
   public totalMinutes: number;
   public chapters: ChapterVideo [];
 
-  constructor(title: string, url: string,  location: string, chapterCount: number, totalMinutes: number, chapters: ChapterVideo[]) {
-    super(title, url, location);
+  constructor(id: number, title: string, url: string,  location: string, chapterCount: number, totalMinutes: number, chapters: ChapterVideo[]) {
+    super(title, url, location, id);
     this.chapterCount = chapterCount;
     this.totalMinutes = totalMinutes;
     this.chapters =  chapters;

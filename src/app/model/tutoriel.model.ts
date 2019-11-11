@@ -5,8 +5,8 @@ export class Tutoriel  extends Item {
 
   public type: TutorielType;
 
-  constructor(title: string, url: string,  location: string, type: TutorielType) {
-    super(title, url, location);
+  constructor(id: number, title: string, url: string,  location: string, type: TutorielType) {
+    super(title, url, location, id);
     this.type = type;
   }
 }

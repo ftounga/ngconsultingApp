@@ -1,0 +1,11 @@
+.available:hover {
+  border: 4px solid #ffccff;
+  border-radius: 25px;
+  h4 {
+    color: #ffccff;
+    font-weight: bold;
+  }
+  .card-body {
+    background-color: cyan;
+  }
+}

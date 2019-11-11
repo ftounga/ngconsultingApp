@@ -5,8 +5,8 @@ export class Article  extends Item {
   public preview: string;
   public dateCreation: Date;
 
-  constructor(title: string, url: string, preview: string, location: string, dateCreation: Date) {
-    super(title, url, location);
+  constructor(id: number, title: string, url: string, preview: string, location: string, dateCreation: Date) {
+    super(title, url, location, id);
     this.preview = preview;
     this.dateCreation =  dateCreation;
   }
