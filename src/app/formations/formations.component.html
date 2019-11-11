@@ -25,7 +25,7 @@
         </div>
 
         <!-- Card content -->
-        <div class="card-body">
+        <div [routerLink]="['/', 'formations', formation.id, 'details']" class="card-body">
 
           <!-- Title -->
           <h4 class="card-title">{{formation.title}}</h4>

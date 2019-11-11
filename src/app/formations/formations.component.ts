@@ -26,7 +26,6 @@ export class FormationsComponent implements OnInit {
         this.idSelectedFormation = params.id;
       }
     );
-    console.log('id formation selected: ' + this.idSelectedFormation);
   }
 
 }
