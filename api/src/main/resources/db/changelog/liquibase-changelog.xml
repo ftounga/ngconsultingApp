@@ -4,5 +4,204 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+    <changeSet author="Franck" id="1">
+        <createTable tableName="user">
+            <column name="id_user" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="2">
+        <addPrimaryKey tableName="user"
+                       constraintName="user_pk" columnNames="id_user"/>
+    </changeSet>
+    <changeSet author="Franck" id="14">
+        <createTable tableName="formation">
+            <column name="id" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_img" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lesson_count" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_minutes" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="15">
+        <addPrimaryKey tableName="formation"
+                       constraintName="formation_pk" columnNames="id"/>
+    </changeSet>
+    <changeSet author="Franck" id="3">
+        <createTable tableName="lesson">
+            <column name="id_lesson" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="source_url" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="preview" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_formation" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="4">
+        <addPrimaryKey tableName="lesson"
+                       constraintName="lesson_pk" columnNames="id_lesson"/>
+    </changeSet>
+    <changeSet author="Franck" id="5">
+        <addForeignKeyConstraint
+                baseTableName="lesson" constraintName="lesson_formation_fk"
+                baseColumnNames="id_formation" referencedTableName="formation"
+                referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet author="Franck" id="6">
+        <createTable tableName="experience">
+            <column name="id_experience" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="poste" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entreprise" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_debut" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_fin" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_user" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="7">
+        <addPrimaryKey tableName="experience"
+                       constraintName="experience_pk" columnNames="id_experience"/>
+    </changeSet>
+    <changeSet author="Franck" id="8">
+        <addForeignKeyConstraint
+                baseTableName="experience" constraintName="experience_user_fk"
+                baseColumnNames="id_user" referencedTableName="user"
+                referencedColumnNames="id_user"/>
+    </changeSet>
+    <changeSet author="Franck" id="9">
+        <createTable tableName="competence">
+            <column name="id_competence" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skill" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_user" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="10">
+        <addPrimaryKey tableName="competence"
+                       constraintName="competence_pk" columnNames="id_competence"/>
+    </changeSet>
+    <changeSet author="Franck" id="11">
+        <addForeignKeyConstraint
+                baseTableName="competence" constraintName="competence_user_fk"
+                baseColumnNames="id_user" referencedTableName="user"
+                referencedColumnNames="id_user"/>
+    </changeSet>
+    <changeSet author="Franck" id="12">
+        <createTable tableName="tutoriel">
+            <column name="id" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_img" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="13">
+        <addPrimaryKey tableName="tutoriel"
+                       constraintName="tutoriel_pk" columnNames="id"/>
+    </changeSet>
+    <changeSet author="Franck" id="16">
+        <createTable tableName="article">
+            <column name="id" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_img" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="preview" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_creation" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Franck" id="17">
+        <addPrimaryKey tableName="article"
+                       constraintName="article_pk" columnNames="id"/>
+    </changeSet>
+
 </databaseChangeLog>
 
