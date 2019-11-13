@@ -11,7 +11,7 @@ public class CompetenceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
+    @Column(name = "id_competence")
     private Integer id;
 
     private String skill;

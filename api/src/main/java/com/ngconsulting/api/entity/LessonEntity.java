@@ -14,9 +14,19 @@ public class LessonEntity {
     @Column(name = "id_lesson")
     private Integer id;
 
+    @Column
     private String title;
+
+    @Column
     private String sourceUrl;
+
+    @Column
     private Integer duration;
+
+    @Column
     private String preview;
-    private Integer idFormation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_formation", nullable = false)
+    private FormationEntity formation;
 }

@@ -3,6 +3,7 @@ package com.ngconsulting.api.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -17,4 +18,12 @@ public class UserEntity {
     private String name;
     private String email;
     private Integer age;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<CompetenceEntity> competences;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<ExperienceEntity> experienceEntities;
 }
