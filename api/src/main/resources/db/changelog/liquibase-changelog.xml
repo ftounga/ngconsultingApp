@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet author="Franck" id="1">
-        <createTable tableName="user">
+        <createTable tableName="users">
             <column name="id_user" type="INTEGER"
                     autoIncrement="true">
                 <constraints nullable="false"/>
@@ -22,7 +22,7 @@
         </createTable>
     </changeSet>
     <changeSet author="Franck" id="2">
-        <addPrimaryKey tableName="user"
+        <addPrimaryKey tableName="users"
                        constraintName="user_pk" columnNames="id_user"/>
     </changeSet>
     <changeSet author="Franck" id="14">
@@ -37,7 +37,7 @@
             <column name="url_img" type="VARCHAR(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="location" type="VARCHAR(30)">
+            <column name="location" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="lesson_count" type="INTEGER">
@@ -58,16 +58,16 @@
                     autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="title" type="VARCHAR(30)">
+            <column name="title" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="source_url" type="VARCHAR(30)">
+            <column name="source_url" type="VARCHAR(300)">
                 <constraints nullable="false"/>
             </column>
             <column name="duration" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="preview" type="VARCHAR(30)">
+            <column name="preview" type="VARCHAR(500)">
                 <constraints nullable="false"/>
             </column>
             <column name="id_formation" type="INTEGER">
@@ -118,7 +118,7 @@
     <changeSet author="Franck" id="8">
         <addForeignKeyConstraint
                 baseTableName="experience" constraintName="experience_user_fk"
-                baseColumnNames="id_user" referencedTableName="user"
+                baseColumnNames="id_user" referencedTableName="users"
                 referencedColumnNames="id_user"/>
     </changeSet>
     <changeSet author="Franck" id="9">
@@ -148,7 +148,7 @@
     <changeSet author="Franck" id="11">
         <addForeignKeyConstraint
                 baseTableName="competence" constraintName="competence_user_fk"
-                baseColumnNames="id_user" referencedTableName="user"
+                baseColumnNames="id_user" referencedTableName="users"
                 referencedColumnNames="id_user"/>
     </changeSet>
     <changeSet author="Franck" id="12">
@@ -201,6 +201,11 @@
     <changeSet author="Franck" id="17">
         <addPrimaryKey tableName="article"
                        constraintName="article_pk" columnNames="id"/>
+    </changeSet>
+
+    <changeSet author="Franck" id="18">
+        <sqlFile path="init-db.sql"
+                 relativeToChangelogFile="true"/>
     </changeSet>
 
 </databaseChangeLog>
