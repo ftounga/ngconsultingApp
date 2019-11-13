@@ -25,5 +25,5 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    private List<ExperienceEntity> experienceEntities;
+    private List<ExperienceEntity> experiences;
 }
