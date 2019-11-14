@@ -1,6 +1,8 @@
 package com.ngconsulting.api.controller;
 
+import com.ngconsulting.api.domain.FormationDto;
 import com.ngconsulting.api.domain.TutorielDto;
+import com.ngconsulting.api.service.FormationService;
 import com.ngconsulting.api.service.TutorielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tutoriels")
-public class TutorielController {
+@RequestMapping("/formations")
+public class FormationController {
 
     @Autowired
-    private TutorielService tutorielService;
+    private FormationService formationService;
 
     @GetMapping
-    public ResponseEntity<List<TutorielDto>> getAllTutoriels() {
-        return ResponseEntity.ok(tutorielService.getAllTutoriels());
+    public ResponseEntity<List<FormationDto>> getAllFormations() {
+        return ResponseEntity.ok(formationService.getAllFormations());
     }
 }
