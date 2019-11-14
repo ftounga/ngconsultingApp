@@ -160,10 +160,10 @@
             <column name="title" type="VARCHAR(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="url_img" type="VARCHAR(30)">
+            <column name="url_img" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="location" type="VARCHAR(30)">
+            <column name="location" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="type" type="VARCHAR(30)">
@@ -181,16 +181,16 @@
                     autoIncrement="true">
                 <constraints nullable="false"/>
             </column>
-            <column name="title" type="VARCHAR(30)">
+            <column name="title" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="url_img" type="VARCHAR(30)">
+            <column name="url_img" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="location" type="VARCHAR(30)">
+            <column name="location" type="VARCHAR(300)">
                 <constraints nullable="false"/>
             </column>
-            <column name="preview" type="VARCHAR(30)">
+            <column name="preview" type="VARCHAR(700)">
                 <constraints nullable="false"/>
             </column>
             <column name="date_creation" type="DATE">
