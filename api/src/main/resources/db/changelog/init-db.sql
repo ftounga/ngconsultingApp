@@ -14,13 +14,13 @@ insert into lesson (id_lesson, title, source_url, duration, preview, id_formatio
 insert into lesson (id_lesson, title, source_url, duration, preview, id_formation) values (4, '4- Les commandes Unix Part 2', 'https://www.youtube.com/embed/NuOY10c0M30', 15, '2ème partie sur les commandes UNIX qui vous permettrons de gérer les permissions attribuées à vos fichiers, les propriétaires associés et celle qui vous permettrons de mettre à jour et d’installer de nouveaux paquets sur UNIX: chmod, chown, apt-get', 1);
 
 -- Init tutoriel table
-insert into tutoriel (id, title, url_img, location, type) values (1,'Nouveautés Java 8', '/assets/img/java-8.png', 'https://toungafranck.com/les-nouveautes-de-java-8-preview/', 'BOOK');
-insert into tutoriel (id, title, url_img, location, type) values (2,'Protocole TLS/SSL', 'assets/img/ssl.png', 'https://toungafranck.com/le-protocole-tls-ssl/', 'GUIDE');
-insert into tutoriel (id, title, url_img, location, type) values (3,'Elasticsearch', '/assets/img/elasticsearch.png', 'https://toungafranck.com/elasticsearch-3/', 'BOOK');
-insert into tutoriel (id, title, url_img, location, type) values (4,'Authentification JWT', '/assets/img/jwt.png', 'https://toungafranck.com/authentification-jwt-json-web-token/', 'GUIDE');
-insert into tutoriel (id, title, url_img, location, type) values (5,'Sring Data & Elastic', '/assets/img/spring-data-elastic.png', '', 'GUIDE');
-insert into tutoriel (id, title, url_img, location, type) values (6,'Sring Boot & Kafka', 'assets/img/Kafka.png', '', 'GUIDE');
-insert into tutoriel (id, title, url_img, location, type) values (7,'Sring & Reactor', 'assets/img/spring-reactor.jpeg', '', 'GUIDE');
+insert into tutoriel (id, title, url_img, location, type, disponible) values (1,'Nouveautés Java 8', '/assets/img/java-8.png', 'https://toungafranck.com/les-nouveautes-de-java-8-preview/', 'BOOK', true);
+insert into tutoriel (id, title, url_img, location, type, disponible) values (2,'Protocole TLS/SSL', 'assets/img/ssl.png', 'https://toungafranck.com/le-protocole-tls-ssl/', 'GUIDE', true);
+insert into tutoriel (id, title, url_img, location, type, disponible) values (3,'Elasticsearch', '/assets/img/elasticsearch.png', 'https://toungafranck.com/elasticsearch-3/', 'BOOK', true);
+insert into tutoriel (id, title, url_img, location, type, disponible) values (4,'Authentification JWT', '/assets/img/jwt.png', 'https://toungafranck.com/authentification-jwt-json-web-token/', 'GUIDE', true);
+insert into tutoriel (id, title, url_img, location, type, disponible) values (5,'Sring Data & Elastic', '/assets/img/spring-data-elastic.png', '', 'GUIDE', false);
+insert into tutoriel (id, title, url_img, location, type, disponible) values (6,'Sring Boot & Kafka', 'assets/img/Kafka.png', '', 'GUIDE', false);
+insert into tutoriel (id, title, url_img, location, type, disponible) values (7,'Sring & Reactor', 'assets/img/spring-reactor.jpeg', '', 'GUIDE', false);
 
 -- Init article table
 insert into article (id, title, url_img, preview, location, date_creation) values (1, 'Installation d’un cluster Elasticsearch en production', '/assets/img/elastic-blog-2.png', 'Elasticsearch est un serveur de recherche open source populaire utilisé pour la recherche distribuée en temps réel et l’analyse de données. Lorsqu’il est utilisé pour autre chose que le développement, Elasticsearch doit être déployé sur plusieurs serveurs en tant que cluster, pour des performances, une stabilité et une évolutivité optimales', 'https://toungafranck.com/2019/07/18/installation-dun-cluster-elasticsearch-en-production-ubuntu-14-04/', '2019-6-18');

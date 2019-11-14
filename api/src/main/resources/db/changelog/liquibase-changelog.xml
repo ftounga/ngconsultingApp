@@ -169,6 +169,9 @@
             <column name="type" type="VARCHAR(30)">
                 <constraints nullable="false"/>
             </column>
+            <column name="disponible" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Franck" id="13">
