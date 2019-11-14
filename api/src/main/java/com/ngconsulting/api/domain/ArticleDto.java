@@ -5,12 +5,11 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class ArticleDto {
+public class ArticleDto extends ItemDto{
 
-    private Integer id;
-    private String title;
-    private String urlImg;
-    private String location;
+
     private String preview;
     private LocalDate dateCreation;
+
+    public ArticleDto() {}
 }

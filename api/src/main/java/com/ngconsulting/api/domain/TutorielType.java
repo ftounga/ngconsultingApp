@@ -11,7 +11,7 @@ public enum TutorielType {
 
     private String type;
 
-    public String getType(){
+    public String getValue(){
         return this.type;
     }
 

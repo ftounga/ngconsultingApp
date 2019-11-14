@@ -11,7 +11,7 @@ import static java.util.Objects.nonNull;
 public class TutorielTypeConverter implements AttributeConverter<TutorielType, String> {
     @Override
     public String convertToDatabaseColumn(TutorielType tutorielType) {
-        return nonNull(tutorielType) ? tutorielType.getType() : null;
+        return nonNull(tutorielType) ? tutorielType.getValue() : null;
     }
 
     @Override
