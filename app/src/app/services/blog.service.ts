@@ -1,5 +1,8 @@
 import {Article} from '../model/article.model';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
+@Injectable({providedIn: 'root'})
 export class BlogService {
 
   articles: Article[] = [
@@ -11,7 +14,13 @@ export class BlogService {
     new Article(6, 'Introduction au data binding ANGULAR 1 VS ANGULAR 2', '/assets/img/data-binding.png', 'En prévision de la formation sur angular 5, prévue en fin avril 2018, dans la NG-ACADEMY, j\'ai décidé de me pencher sur un des concepts de base d’angular: le data binding. Il existe plusieurs façons de lier des données dans Angular: interpolation, liaison unidirectionnelle (one way binding), liaison bidirectionnelle(two way binding) et liaison d\'événement(event binding)', 'https://toungafranck.com/2018/03/06/2076-data-binding-in-angular/', new Date(2019, 3, 6))
   ];
 
+  constructor(private http: HttpClient){}
   getAllArticles(): Article[] {
+    this.getAllArticlesHttp();
     return this.articles;
+  }
+
+  getAllArticlesHttp(){
+    this.http.get('http://localhost:8080/api/articles').subscribe(response => {console.log(response)});
   }
 }

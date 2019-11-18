@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FormationsComponent } from './formations/formations.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 import { SafePipePipe } from './safe-pipe.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     ScrollEventModule,
     RouterModule.forRoot(appRoutes),
     MDBBootstrapModule.forRoot(),
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
