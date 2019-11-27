@@ -56,13 +56,13 @@ insert into lesson (title, source_url, duration, preview, id_formation) values (
 insert into lesson (title, source_url, duration, preview, id_formation) values ('19-  Recherche - Query terms', 'https://www.youtube.com/embed/j9Vur__9Vm0', 4, 'Présentation de la query terms sur Elasticsearch. Utilisation des options minimum_should_match. Exemple d’utilisation', 3);
 
 -- Init tutoriel table
-insert into tutoriel (id, title, url_img, location, type, disponible) values (1,'Nouveautés Java 8', '/assets/img/java-8.png', 'https://toungafranck.com/les-nouveautes-de-java-8-preview/', 'BOOK', true);
-insert into tutoriel (id, title, url_img, location, type, disponible) values (2,'Protocole TLS/SSL', 'assets/img/ssl.png', 'https://toungafranck.com/le-protocole-tls-ssl/', 'GUIDE', true);
-insert into tutoriel (id, title, url_img, location, type, disponible) values (3,'Elasticsearch', '/assets/img/elasticsearch.png', 'https://toungafranck.com/elasticsearch-3/', 'BOOK', true);
-insert into tutoriel (id, title, url_img, location, type, disponible) values (4,'Authentification JWT', '/assets/img/jwt.png', 'https://toungafranck.com/authentification-jwt-json-web-token/', 'GUIDE', true);
-insert into tutoriel (id, title, url_img, location, type, disponible) values (5,'Sring Data & Elastic', '/assets/img/spring-data-elastic.png', '', 'GUIDE', false);
-insert into tutoriel (id, title, url_img, location, type, disponible) values (6,'Sring Boot & Kafka', 'assets/img/Kafka.png', '', 'GUIDE', false);
-insert into tutoriel (id, title, url_img, location, type, disponible) values (7,'Sring & Reactor', 'assets/img/spring-reactor.jpeg', '', 'GUIDE', false);
+insert into tutoriel (id, title, url_img, location, type, available) values (1,'Nouveautés Java 8', '/assets/img/java-8.png', 'https://toungafranck.com/les-nouveautes-de-java-8-preview/', 'BOOK', true);
+insert into tutoriel (id, title, url_img, location, type, available) values (2,'Protocole TLS/SSL', 'assets/img/ssl.png', 'https://toungafranck.com/le-protocole-tls-ssl/', 'GUIDE', true);
+insert into tutoriel (id, title, url_img, location, type, available) values (3,'Elasticsearch', '/assets/img/elasticsearch.png', 'https://toungafranck.com/elasticsearch-3/', 'BOOK', true);
+insert into tutoriel (id, title, url_img, location, type, available) values (4,'Authentification JWT', '/assets/img/jwt.png', 'https://toungafranck.com/authentification-jwt-json-web-token/', 'GUIDE', true);
+insert into tutoriel (id, title, url_img, location, type, available) values (5,'Sring Data & Elastic', '/assets/img/spring-data-elastic.png', '', 'GUIDE', false);
+insert into tutoriel (id, title, url_img, location, type, available) values (6,'Sring Boot & Kafka', 'assets/img/Kafka.png', '', 'GUIDE', false);
+insert into tutoriel (id, title, url_img, location, type, available) values (7,'Sring & Reactor', 'assets/img/spring-reactor.jpeg', '', 'GUIDE', false);
 
 -- Init article table
 insert into article (id, title, url_img, preview, location, date_creation) values (1, 'Installation d’un cluster Elasticsearch en production', '/assets/img/elastic-blog-2.png', 'Elasticsearch est un serveur de recherche open source populaire utilisé pour la recherche distribuée en temps réel et l’analyse de données. Lorsqu’il est utilisé pour autre chose que le développement, Elasticsearch doit être déployé sur plusieurs serveurs en tant que cluster, pour des performances, une stabilité et une évolutivité optimales', 'https://toungafranck.com/2019/07/18/installation-dun-cluster-elasticsearch-en-production-ubuntu-14-04/', '2019-6-18');

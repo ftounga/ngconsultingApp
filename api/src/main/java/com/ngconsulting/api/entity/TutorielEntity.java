@@ -14,5 +14,5 @@ public class TutorielEntity extends ItemEntity {
     @Convert(converter = TutorielTypeConverter.class)
     private TutorielType type;
 
-    private Boolean disponible;
+    private Boolean available;
 }

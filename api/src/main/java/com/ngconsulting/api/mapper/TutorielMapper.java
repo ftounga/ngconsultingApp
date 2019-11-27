@@ -14,7 +14,7 @@ public class TutorielMapper {
         dto.setLocation(entity.getLocation());
         dto.setTitle(entity.getTitle());
         dto.setUrlImg(entity.getUrlImg());
-        dto.setDisponible(entity.getDisponible());
+        dto.setAvailable(entity.getAvailable());
         return dto;
     }
 
@@ -25,7 +25,7 @@ public class TutorielMapper {
         entity.setLocation(dto.getLocation());
         entity.setTitle(dto.getTitle());
         entity.setUrlImg(dto.getUrlImg());
-        entity.setDisponible(dto.getDisponible());
+        entity.setAvailable(dto.getAvailable());
         return entity;
     }
 }

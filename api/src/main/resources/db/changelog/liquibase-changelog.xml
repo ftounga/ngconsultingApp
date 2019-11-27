@@ -169,7 +169,7 @@
             <column name="type" type="VARCHAR(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="disponible" type="BOOLEAN">
+            <column name="available" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
         </createTable>

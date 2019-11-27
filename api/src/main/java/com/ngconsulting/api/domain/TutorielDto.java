@@ -6,7 +6,7 @@ import lombok.Data;
 public class TutorielDto extends ItemDto {
 
     private String type;
-    private Boolean disponible;
+    private Boolean available;
 
     public TutorielDto(){}
 }

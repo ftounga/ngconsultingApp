@@ -22,11 +22,11 @@ export class TutorielsComponent implements OnInit {
   }
 
   getAvailableTutoriels(): Tutoriel[] {
-    return this.tutoriels.filter( tutoriel => tutoriel.location != null);
+    return this.tutoriels.filter( tutoriel => tutoriel.available === true);
   }
 
   getNotAvailableTutoriels(): Tutoriel[] {
-    return this.tutoriels.filter( tutoriel => tutoriel.location == null);
+    return this.tutoriels.filter( tutoriel => tutoriel.available !== true);
   }
 
 }
