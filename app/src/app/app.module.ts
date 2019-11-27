@@ -17,14 +17,16 @@ import { FormationsComponent } from './formations/formations.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 import { SafePipePipe } from './safe-pipe.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import {FormationResolver} from './formations/formations-resolver.service';
+import {TutorielResolver} from './tutoriels/tutoriels-resolver.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
-  {path: 'tutoriels', component: TutorielsComponent},
-  {path: 'formations', component: FormationsComponent},
-  {path: 'formations/:id', component: FormationsComponent, children: [
+  {path: 'tutoriels', component: TutorielsComponent, resolve: {tutoriels: TutorielResolver}},
+  {path: 'formations', component: FormationsComponent, resolve: { formations: FormationResolver }},
+  {path: 'formations/:id', component: FormationsComponent, resolve: { formations: FormationResolver }, children: [
       {path: 'details', component: FormationDetailsComponent}
     ]},
   {path: 'about', component: AboutComponent},

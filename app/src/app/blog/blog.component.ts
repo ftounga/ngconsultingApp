@@ -11,11 +11,12 @@ export class BlogComponent implements OnInit {
 
   articles: Article[];
 
-  constructor(private blogService: BlogService) {
-    this.articles =  blogService.getAllArticles();
-  }
+  constructor(private blogService: BlogService) {}
 
   ngOnInit() {
+    this.blogService.getAllArticles().subscribe((response: Article[]) => {
+      this.articles = response;
+    });
   }
 
 }

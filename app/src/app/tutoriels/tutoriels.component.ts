@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TutorielService} from '../services/tutoriel.service';
 import {Tutoriel} from '../model/tutoriel.model';
+import {ActivatedRoute, Data} from '@angular/router';
 
 @Component({
   selector: 'app-tutoriels',
@@ -11,12 +12,13 @@ export class TutorielsComponent implements OnInit {
 
   tutoriels: Tutoriel [];
 
-  constructor(private tutorielService: TutorielService) {
-
-    this.tutoriels = tutorielService.getAllTutoriels();
-  }
+  constructor(private tutorielService: TutorielService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.data.subscribe((data: Data) =>{
+      console.log(data);
+      this.tutoriels = data.tutoriels;
+    });
   }
 
   getAvailableTutoriels(): Tutoriel[] {

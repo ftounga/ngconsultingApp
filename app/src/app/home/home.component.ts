@@ -10,11 +10,13 @@ import {BlogService} from '../services/blog.service';
 export class HomeComponent implements OnInit {
 
   articles: Article[] ;
-  constructor(private blogService: BlogService) {
-    this.articles =  blogService.getAllArticles();
-  }
+  constructor(private blogService: BlogService) {}
 
   ngOnInit() {
+    this.blogService.getAllArticles().subscribe( response => {
+      console.log(response);
+      this.articles = response;
+    });
   }
 
 }

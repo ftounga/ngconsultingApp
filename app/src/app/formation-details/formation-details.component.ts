@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ChapterVideo} from '../model/chapterVideo.model';
 import {FormationService} from '../services/formation.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Data, Params} from '@angular/router';
+import {Formation} from '../model/formation.model';
 
 @Component({
   selector: 'app-formation-details',
@@ -11,18 +12,16 @@ import {ActivatedRoute, Params} from '@angular/router';
 export class FormationDetailsComponent implements OnInit {
 
   chapters: ChapterVideo[];
-  idSelectedFormation: number;
+  selectedFormation: Formation;
   private formationService: FormationService;
   constructor(private formation: FormationService, private route: ActivatedRoute) {
     this.formationService = formation;
   }
 
   ngOnInit() {
-    this.route.parent.params.subscribe(
-      (params: Params) => {
-        this.idSelectedFormation = params.id;
-        this.chapters = this.formationService.getChaptersFormationById(this.idSelectedFormation);
-      }
+    console.log(history.state.selectedFormation);
+    this.formationService.selectedFormation.subscribe(
+      (formation) => this.chapters = formation['chapters']
     );
   }
 

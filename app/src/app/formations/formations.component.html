@@ -10,8 +10,8 @@
 <br><br><br>
 <div class="container">
   <div class="row pb-5">
-    <div class="col-lg-3 col-md-4" *ngFor="let formation of formations" mdbTooltip="{{formation.chapterCount}} chapitres" placement="top">
-      <div class="card z-depth-3 rounded available" [ngClass]="{'available':formation.location!='', 'unavailable':formation.location=='', 'selected': idSelectedFormation == formation.id}">
+    <div class="col-lg-3 col-md-4" *ngFor="let formation of formations" mdbTooltip="{{formation.chapters.length}} chapitres" placement="top">
+      <div class="card z-depth-3 rounded available" [ngClass]="{'available':formation.chapters.length!=0, 'unavailable':formation.chapters.length==0, 'selected': idSelectedFormation == formation.id}">
 
         <!-- Card image -->
         <div class="view overlay">
@@ -25,7 +25,7 @@
         </div>
 
         <!-- Card content -->
-        <div [routerLink]="['/', 'formations', formation.id, 'details']" class="card-body">
+        <div [routerLink]="['/', 'formations', formation.id, 'details']" [state]="{ selectedFormation: formation }" class="card-body">
 
           <!-- Title -->
           <h4 class="card-title">{{formation.title}}</h4>

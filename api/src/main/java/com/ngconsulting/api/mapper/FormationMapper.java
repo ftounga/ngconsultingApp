@@ -3,6 +3,8 @@ package com.ngconsulting.api.mapper;
 import com.ngconsulting.api.domain.FormationDto;
 import com.ngconsulting.api.entity.FormationEntity;
 
+import java.util.stream.Collectors;
+
 public class FormationMapper {
 
     public static FormationDto formationEntityToFormationDto(FormationEntity entity){
@@ -14,6 +16,8 @@ public class FormationMapper {
         dto.setLocation(entity.getLocation());
         dto.setTitle(entity.getTitle());
         dto.setUrlImg(entity.getUrlImg());
+        dto.setTotalMinutes(entity.getTotalMinutes());
+        dto.getChapters().addAll(entity.getLessons().stream().map(LessonMapper::lessonEntityToLessonDto).collect(Collectors.toList()));
         return dto;
     }
 
