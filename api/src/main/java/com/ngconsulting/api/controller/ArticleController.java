@@ -4,6 +4,8 @@ import com.ngconsulting.api.config.Swagger;
 import com.ngconsulting.api.domain.ArticleDto;
 import com.ngconsulting.api.service.ArticleService;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,8 @@ import java.util.List;
 @RequestMapping("/articles")
 public class ArticleController {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private ArticleService articleService;
 
@@ -23,6 +27,8 @@ public class ArticleController {
     @ApiOperation("Get all articles ")
     @GetMapping
     public ResponseEntity<List<ArticleDto>> getAll() {
-       return ResponseEntity.ok(articleService.getAllArticles());
+
+        logger.debug("****** get all articles");
+        return ResponseEntity.ok(articleService.getAllArticles());
     }
 }
