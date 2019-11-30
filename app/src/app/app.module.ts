@@ -19,6 +19,7 @@ import { SafePipePipe } from './safe-pipe.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import {FormationResolver} from './formations/formations-resolver.service';
 import {TutorielResolver} from './tutoriels/tutoriels-resolver.service';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MDBBootstrapModule.forRoot(),
     ProgressbarModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
