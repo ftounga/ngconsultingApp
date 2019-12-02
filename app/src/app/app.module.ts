@@ -20,6 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormationResolver} from './formations/formations-resolver.service';
 import {TutorielResolver} from './tutoriels/tutoriels-resolver.service';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -56,7 +58,9 @@ const appRoutes: Routes = [
     MDBBootstrapModule.forRoot(),
     ProgressbarModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

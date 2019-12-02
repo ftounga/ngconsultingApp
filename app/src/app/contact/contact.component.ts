@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Message} from '../model/message.model';
 import {ContactService} from '../services/contact.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +15,7 @@ export class ContactComponent implements OnInit {
   showErrorMessage: Boolean;
   contact: Message;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private toastrService: ToastrService, private contactService: ContactService) { }
 
   ngOnInit() {
     this.showErrorMessage = false;
@@ -33,8 +34,10 @@ export class ContactComponent implements OnInit {
     } else {
       this.contact = this.messageForm.value;
       this.contactService.sendMessage(this.contact).subscribe(contact => {
-        console.log('Your message has been sent successfully');
-      })
+        this.toastrService.success('Your message has been sent successfully', 'Message sending');
+      }, error => {
+        this.toastrService.error('A technical error occured', 'Message sending');
+      });
       this.showErrorMessage = false;
     }
   }
