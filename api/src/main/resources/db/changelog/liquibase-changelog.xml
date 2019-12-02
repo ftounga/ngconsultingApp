@@ -207,6 +207,35 @@
     </changeSet>
 
     <changeSet author="Franck" id="18">
+        <createTable tableName="message">
+            <column name="id" type="INTEGER"
+                    autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="object" type="VARCHAR(700)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="VARCHAR(700)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Franck" id="19">
+        <addPrimaryKey tableName="message"
+                       constraintName="message_pk" columnNames="id"/>
+    </changeSet>
+
+    <changeSet author="Franck" id="20">
         <sqlFile path="init-db.sql"
                  relativeToChangelogFile="true"/>
     </changeSet>
