@@ -227,6 +227,9 @@
             <column name="message" type="VARCHAR(700)">
                 <constraints nullable="false"/>
             </column>
+            <column name="date_creation" type="DATE">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 

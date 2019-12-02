@@ -4,6 +4,8 @@ import com.ngconsulting.api.domain.MessageDto;
 import com.ngconsulting.api.domain.MessageObject;
 import com.ngconsulting.api.entity.MessageEntity;
 
+import java.time.LocalDate;
+
 public class MessageMapper {
 
     public static MessageEntity fromMessageDtoToEntity(MessageDto dto){
@@ -14,6 +16,7 @@ public class MessageMapper {
         messageEntity.setMessage(dto.getMessage());
         messageEntity.setObject(MessageObject.fromValue(dto.getObject()));
         messageEntity.setPhoneNumber(dto.getPhoneNumber());
+        messageEntity.setDateCreation(LocalDate.now());
         return  messageEntity;
     }
 
@@ -26,6 +29,7 @@ public class MessageMapper {
         messageDto.setMessage(entity.getMessage());
         messageDto.setObject(entity.getObject().getValue());
         messageDto.setPhoneNumber(entity.getPhoneNumber());
+        messageDto.setDateCreation(entity.getDateCreation());
         return  messageDto;
     }
 }

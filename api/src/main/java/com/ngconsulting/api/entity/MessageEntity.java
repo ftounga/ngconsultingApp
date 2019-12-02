@@ -5,6 +5,7 @@ import com.ngconsulting.api.domain.MessageObject;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "message")
@@ -21,4 +22,6 @@ public class MessageEntity {
     @Convert(converter = MessageObjectConverter.class)
     private MessageObject object;
     private String message;
+    @Column
+    private LocalDate dateCreation;
 }

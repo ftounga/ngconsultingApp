@@ -36,18 +36,18 @@
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
                   <label class="control-label sr-only " for="Phone"></label>
-                  <input id="phone" type="text" placeholder="Phone" formControlName="phone" class="form-control" required>
-                  <span *ngIf="!messageForm.get('phone').valid && messageForm.get('phone').touched" class="help-block"> please enter a valid phone</span>
+                  <input id="phone" type="text" placeholder="Phone" formControlName="phoneNumber" class="form-control" required>
+                  <span *ngIf="!messageForm.get('phoneNumber').valid && messageForm.get('phoneNumber').touched" class="help-block"> please enter a valid phone</span>
                 </div>
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
                   <label class="control-label required sr-only" for="Object"></label>
                   <select id="Object" formControlName="object" class="form-control">
-                    <option value="Opportunity">Opportunity</option>
-                    <option value="Question">Question</option>
-                    <option value="Feedback">Feedback</option>
-                    <option value="Other">Other</option>
+                    <option value="OPPORTUNITY">Opportunity</option>
+                    <option value="QUESTION">Question</option>
+                    <option value="FEEDBACK">Feedback</option>
+                    <option value="OTHER">Other</option>
                   </select>
                   <span *ngIf="!messageForm.get('object').valid && messageForm.get('object').touched" class="help-block"> please enter a valid object</span>
                 </div>

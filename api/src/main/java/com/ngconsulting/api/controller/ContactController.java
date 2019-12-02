@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/message")
 public class ContactController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
