@@ -18,7 +18,7 @@ public class TutorielMapper {
         return dto;
     }
 
-    public static TutorielEntity tutorielDtoToTutorielDto(TutorielDto dto){
+    public static TutorielEntity tutorielDtoToEntity(TutorielDto dto){
         TutorielEntity entity = new TutorielEntity();
         entity.setType(TutorielType.fromType(dto.getType()));
         entity.setId(dto.getId());
