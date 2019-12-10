@@ -24,7 +24,7 @@ public class FormationServiceImpl implements FormationService {
 
     @Override
     public List<FormationDto> getAllFormations() {
-        return formationRepository.findAll().stream().map(FormationMapper::formationEntityToFormationDto).collect(Collectors.toList());
+        return formationRepository.findAll().stream().map(FormationMapper::formationEntityToDto).collect(Collectors.toList());
     }
 
     @Override

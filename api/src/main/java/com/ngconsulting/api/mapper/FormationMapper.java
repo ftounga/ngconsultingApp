@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 
 public class FormationMapper {
 
-    public static FormationDto formationEntityToFormationDto(FormationEntity entity){
+    public static FormationDto formationEntityToDto(FormationEntity entity){
 
         FormationDto dto = new FormationDto();
         dto.setId(entity.getId());
         dto.setLessonCount(entity.getLessonCount());
-        dto.setLessonCount(entity.getTotalMinutes());
+        dto.setTotalMinutes(entity.getTotalMinutes());
         dto.setLocation(entity.getLocation());
         dto.setTitle(entity.getTitle());
         dto.setUrlImg(entity.getUrlImg());
@@ -21,12 +21,12 @@ public class FormationMapper {
         return dto;
     }
 
-    public static FormationEntity formationEntityToFormationDto(FormationDto dto){
+    public static FormationEntity formationDtoToEntity(FormationDto dto){
 
         FormationEntity entity = new FormationEntity();
         entity.setId(dto.getId());
         entity.setLessonCount(dto.getLessonCount());
-        entity.setLessonCount(dto.getTotalMinutes());
+        entity.setTotalMinutes(dto.getTotalMinutes());
         entity.setLocation(dto.getLocation());
         entity.setTitle(dto.getTitle());
         entity.setUrlImg(dto.getUrlImg());
