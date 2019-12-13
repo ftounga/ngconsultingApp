@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { TutorielsComponent } from './tutoriels/tutoriels.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
-import {CommonModule} from '@angular/common';
+import {APP_BASE_HREF, CommonModule} from '@angular/common';
 import {ScrollEventModule} from 'ngx-scroll-event';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { ContactComponent } from './contact/contact.component';
@@ -62,7 +62,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/app'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
