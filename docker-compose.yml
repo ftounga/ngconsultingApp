@@ -1,0 +1,46 @@
+version: '3'
+services:
+
+  ng-db:
+    image: ng-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: francky
+      POSTGRES_DB: ng-db
+    build:
+      context: postgresql
+    ports:
+      - "16432:5432"
+    networks:
+      - backend
+
+  ng-api:
+    build:
+      context: api
+    image: ng-api
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://ng-db:5432/ng-db
+      DB_USERNAME: ng_user
+      DB_PASSWORD: francky
+      SPRING_PROFILES_ACTIVE: dev
+    depends_on:
+      - ng-db
+    networks:
+      - backend
+
+  ng-app:
+    build:
+      context: app
+    image: ng-app
+    depends_on:
+      - ng-api
+    ports:
+      - "80:80"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: "bridge"
