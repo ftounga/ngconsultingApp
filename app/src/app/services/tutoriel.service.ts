@@ -9,6 +9,6 @@ export class TutorielService {
 constructor(private http: HttpClient){}
 
   getAllTutoriels(){
-    return this.http.get<Tutoriel[]>(environment.api_url + 'tutoriels');
+    return this.http.get<Tutoriel[]>(environment.api_url + '/tutoriels');
   }
 }

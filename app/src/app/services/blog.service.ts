@@ -9,6 +9,6 @@ export class BlogService {
   constructor(private http: HttpClient){}
 
   getAllArticles(){
-   return this.http.get<Article[]>(environment.api_url + 'articles');
+   return this.http.get<Article[]>(environment.api_url + '/articles');
   }
 }

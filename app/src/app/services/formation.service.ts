@@ -13,11 +13,11 @@ export class FormationService {
   constructor(private http: HttpClient) {}
 
   getAllFormations() {
-    return this.http.get<Formation[]>(environment.api_url + 'formations');
+    return this.http.get<Formation[]>(environment.api_url + '/formations');
   }
 
   getChaptersFormationById(idFormation: number) {
-    return this.http.get<ChapterVideo[]>(environment.api_url + 'formations/' + idFormation + '/lessons');
+    return this.http.get<ChapterVideo[]>(environment.api_url + '/formations/' + idFormation + '/lessons');
   }
 
   getLoadedLessons(idSelectedFormation: number) {
