@@ -24,6 +24,9 @@ services:
       DB_URL: jdbc:postgresql://ng-db:5432/ng-db
       DB_USERNAME: ng_user
       DB_PASSWORD: francky
+      MAIL_USERNAME: devtounga@gmail.com
+      MAIL_PASSWORD: francky007
+      MAIL_RECEIVER: ${MAIL_RECEIVER}
       SPRING_PROFILES_ACTIVE: dev
     depends_on:
       - ng-db
