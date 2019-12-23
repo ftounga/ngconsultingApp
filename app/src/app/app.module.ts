@@ -17,6 +17,7 @@ import { FormationsComponent } from './formations/formations.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 import { SafePipePipe } from './safe-pipe.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import { OAuthModule } from 'angular-oauth2-oidc';
 import {FormationResolver} from './formations/formations-resolver.service';
 import {TutorielResolver} from './tutoriels/tutoriels-resolver.service';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
       {path: 'details', component: FormationDetailsComponent}
     ]},
   {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'contact', component: ContactComponent},
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -60,7 +62,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    OAuthModule.forRoot()
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/app'}],
   bootstrap: [AppComponent]

@@ -1,29 +1,39 @@
 <mdb-navbar SideClass="navbar navbar-expand-md navbar-light light-blue lighten-3 sticky-top">
-<mdb-navbar-brand>
-  <a class="navbar-brand" href="#">
-    <img src="/assets/img/logo-web-transparent.png" width="130" height="40" alt="">
-  </a>
-</mdb-navbar-brand>
-<links>
-  <ul class="navbar-nav ml-auto">
-    <li routerLinkActive="active" class="nav-item">
-      <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Home <span class="sr-only">(current)</span></a>
-    </li>
-    <li routerLinkActive="active" class="nav-item">
-      <a routerLink="/blog" class="nav-link waves-light" mdbWavesEffect>Blog</a>
-    </li>
-    <li routerLinkActive="active" class="nav-item">
-      <a routerLink="tutoriels" class="nav-link waves-light" mdbWavesEffect>Tutoriels</a>
-    </li>
-    <li routerLinkActive="active" class="nav-item">
-      <a routerLink="formations" class="nav-link waves-light" mdbWavesEffect>Formations vidéos</a>
-    </li>
-    <li routerLinkActive="active" class="nav-item">
-      <a routerLink="about" class="nav-link waves-light" mdbWavesEffect>A propos</a>
-    </li>
-    <li routerLinkActive="active" class="nav-item">
-      <a routerLink="contact" class="nav-link waves-light" mdbWavesEffect>Contact</a>
-    </li>
-  </ul>
-</links>
+  <mdb-navbar-brand>
+    <a class="navbar-brand" href="#">
+      <img src="/assets/img/logo-web-transparent.png" width="130" height="40" alt="">
+    </a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav ml-auto">
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Home <span
+          class="sr-only">(current)</span></a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="/blog" class="nav-link waves-light" mdbWavesEffect>Blog</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="tutoriels" class="nav-link waves-light" mdbWavesEffect>Tutoriels</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="formations" class="nav-link waves-light" mdbWavesEffect>Formations vidéos</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="about" class="nav-link waves-light" mdbWavesEffect>A propos</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="contact" class="nav-link waves-light" mdbWavesEffect>Contact</a>
+      </li>
+    </ul>
+    <div class="ml-1">
+      <button *ngIf="!name" type="button" (click)="login()" class="btn btn-outline-success waves-effect">Connexion
+      </button>
+      <button *ngIf="name" type="button" (click)="logout()" class="btn btn-outline-success waves-effect">Logout</button>
+    </div>
+    <a *ngIf="name" class="nav-link p-0" href="#">
+      <img [src]="picture" class="rounded-circle z-depth-0 ml-1"
+           alt="avatar image" height="35" mdbTooltip="{{name}}" >
+    </a>
+  </links>
 </mdb-navbar>
