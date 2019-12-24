@@ -23,18 +23,19 @@ import {TutorielResolver} from './tutoriels/tutoriels-resolver.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthGuard} from './AuthGuard';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'tutoriels', component: TutorielsComponent, resolve: {tutoriels: TutorielResolver}},
-  {path: 'formations', component: FormationsComponent, resolve: { formations: FormationResolver }},
+  {path: 'blog', component: BlogComponent, canActivate: [AuthGuard]},
+  {path: 'tutoriels', component: TutorielsComponent, resolve: {tutoriels: TutorielResolver}, canActivate: [AuthGuard]},
+  {path: 'formations', component: FormationsComponent, resolve: { formations: FormationResolver }, canActivate: [AuthGuard]},
   {path: 'formations/:id', component: FormationsComponent, resolve: { formations: FormationResolver }, children: [
       {path: 'details', component: FormationDetailsComponent}
-    ]},
-  {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent},
+    ], canActivate: [AuthGuard]},
+  {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  {path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
@@ -65,7 +66,7 @@ const appRoutes: Routes = [
     ToastrModule.forRoot(),
     OAuthModule.forRoot()
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/app'}],
+  providers: [AuthGuard, {provide: APP_BASE_HREF, useValue: '/app'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
