@@ -27,9 +27,9 @@
       </li>
     </ul>
     <div class="ml-1">
-      <button *ngIf="!name" type="button" (click)="login()" class="btn btn-outline-success waves-effect">Connexion
+      <button *ngIf="!isAuthenticated" type="button" (click)="login()" class="btn btn-outline-success waves-effect">Connexion
       </button>
-      <button *ngIf="name" type="button" (click)="logout()" class="btn btn-outline-success waves-effect">Logout</button>
+      <button *ngIf="isAuthenticated" type="button" (click)="logout()" class="btn btn-outline-success waves-effect">Logout</button>
     </div>
     <a *ngIf="name" class="nav-link p-0" href="#">
       <img [src]="picture" class="rounded-circle z-depth-0 ml-1"

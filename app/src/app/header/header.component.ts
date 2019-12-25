@@ -21,6 +21,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.route.fragment.subscribe(fragment => {
       this.fragment = fragment;
+      console.log('********* Id_token: ' + this.oauthService.getIdToken());
+      console.log('********* Access_token: ' + this.oauthService.getAccessToken());
+      console.log('********* Granted scope: ' + this.oauthService.getGrantedScopes());
+      console.log('********* Valid access_token: ' + this.oauthService.hasValidAccessToken());
     });
   }
 
@@ -42,15 +46,17 @@ export class HeaderComponent implements OnInit {
   public get name() {
     const claims = this.oauthService.getIdentityClaims();
     if (!claims) { return null; }
-    console.log(claims);
     return claims['name'];
   }
 
   public get picture() {
     const claims = this.oauthService.getIdentityClaims();
     if (!claims) { return null; }
-    console.log(claims);
     return claims['picture'];
+  }
+
+  public get isAuthenticated(){
+    return this.oauthService.hasValidAccessToken();
   }
 
 }

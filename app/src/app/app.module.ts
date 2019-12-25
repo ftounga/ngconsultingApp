@@ -64,7 +64,12 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['/api'],
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [AuthGuard, {provide: APP_BASE_HREF, useValue: '/app'}],
   bootstrap: [AppComponent]
