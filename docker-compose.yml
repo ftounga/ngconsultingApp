@@ -28,6 +28,9 @@ services:
       MAIL_PASSWORD: francky007
       MAIL_RECEIVER: ${MAIL_RECEIVER}
       SPRING_PROFILES_ACTIVE: dev
+      OAUTH_JWK_URI: https://www.googleapis.com/oauth2/v3/certs
+      OAUTH_USER_INFO_URI: https://openidconnect.googleapis.com/v1/userinfo
+      OAUTH_JWK_CLIENT_ID: 497106959400-37o2m3pa1tvcig4hp2sqqtn6ma731hq0.apps.googleusercontent.com
     depends_on:
       - ng-db
     networks:
