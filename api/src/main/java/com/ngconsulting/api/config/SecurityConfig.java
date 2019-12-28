@@ -1,7 +1,8 @@
 package com.ngconsulting.api.config;
 
+import com.ngconsulting.api.repository.UserRepository;
+import com.ngconsulting.api.service.CustomUserInfoTokenServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -19,6 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private Environment env;
 
+    @Autowired
+    private UserRepository userRepository;
+
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
@@ -30,6 +34,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Primary
     public ResourceServerTokenServices resourceServerTokenServices() {
-        return new UserInfoTokenServices(env.getProperty("spring.security.oauth2.resource.userInfoUri"), env.getProperty("spring.security.oauth2.resource.clientId"));
+        return new CustomUserInfoTokenServices(env.getProperty("spring.security.oauth2.resource.userInfoUri"), env.getProperty("spring.security.oauth2.resource.clientId"), userRepository);
     }
 }

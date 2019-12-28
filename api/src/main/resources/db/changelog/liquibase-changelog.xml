@@ -13,10 +13,19 @@
             <column name="name" type="VARCHAR(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="email" type="VARCHAR(30)">
+            <column name="picture" type="VARCHAR(600)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="age" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_creation" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_connexion" type="DATE">
                 <constraints nullable="false"/>
             </column>
         </createTable>

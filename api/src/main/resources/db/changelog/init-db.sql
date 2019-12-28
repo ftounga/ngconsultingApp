@@ -1,5 +1,6 @@
 -- Init users table
-INSERT INTO users (id_user, name, email, age) VALUES (1, 'Franck', 'ntounga@gmail.com', 30);
+CREATE SEQUENCE iduser_id_seq MINVALUE 1 INCREMENT 50;;
+INSERT INTO users (id_user, name, email, age, date_creation, date_connexion) VALUES ( nextval('iduser_id_seq'), 'Franck', 'ntounga@gmail.com', 30, '2019-6-18', '2019-6-18');
 
 -- Init formation table
 INSERT INTO formation (id, title, url_img, location, lesson_count, total_minutes) values (1, 'Mise en place serveur', '/assets/img/apache.png', 'https://toungafranck.com/mise-en-place-serveur/', 13, 163);
