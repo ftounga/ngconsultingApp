@@ -3,6 +3,8 @@ import {ViewEncapsulation} from '@angular/core';
 import {JwksValidationHandler, OAuthService} from 'angular-oauth2-oidc';
 import {authConfig} from '../config/oAuth.config';
 import {ActivatedRoute} from '@angular/router';
+import {ContactService} from '../services/contact.service';
+import {User} from '../model/user.model';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +16,18 @@ export class HeaderComponent implements OnInit {
 
   private fragment: any;
 
-  constructor(private oauthService: OAuthService, private route: ActivatedRoute) {
+  connectedUser: User;
+
+  constructor(private oauthService: OAuthService, private contactService: ContactService, private route: ActivatedRoute) {
     this.configure();
   }
 
   ngOnInit() {
     this.route.fragment.subscribe(fragment => {
       this.fragment = fragment;
+      this.contactService.getConnectedUser().subscribe(user => {
+        this.connectedUser = user;
+      });
       console.log('********* Id_token: ' + this.oauthService.getIdToken());
       console.log('********* Access_token: ' + this.oauthService.getAccessToken());
       console.log('********* Granted scope: ' + this.oauthService.getGrantedScopes());
@@ -41,18 +48,21 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.oauthService.logOut();
+    this.connectedUser = undefined;
   }
 
   public get name() {
-    const claims = this.oauthService.getIdentityClaims();
-    if (!claims) { return null; }
-    return claims['name'];
+    if (this.connectedUser !== undefined){
+      return this.connectedUser.name;
+    }
+    return undefined;
   }
 
   public get picture() {
-    const claims = this.oauthService.getIdentityClaims();
-    if (!claims) { return null; }
-    return claims['picture'];
+   if (this.connectedUser !== undefined){
+     return this.connectedUser.picture;
+   }
+   return undefined;
   }
 
   public get isAuthenticated(){

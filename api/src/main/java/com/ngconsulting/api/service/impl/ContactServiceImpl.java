@@ -1,9 +1,13 @@
 package com.ngconsulting.api.service.impl;
 
 import com.ngconsulting.api.domain.MessageDto;
+import com.ngconsulting.api.domain.UserDto;
 import com.ngconsulting.api.entity.MessageEntity;
+import com.ngconsulting.api.entity.UserEntity;
 import com.ngconsulting.api.mapper.MessageMapper;
+import com.ngconsulting.api.mapper.UserMapper;
 import com.ngconsulting.api.repository.MessageRepository;
+import com.ngconsulting.api.repository.UserRepository;
 import com.ngconsulting.api.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -19,6 +23,9 @@ public class ContactServiceImpl implements ContactService {
 
     @Autowired
     private MessageRepository messageRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -43,5 +50,11 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public List<MessageDto> getAllMessages() {
         return messageRepository.findAll().stream().map(MessageMapper::fromMessageEntityToDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDto findUserByEmail(String email){
+        UserEntity userEntity = userRepository.findByEmail(email);
+        return UserMapper.entityToUserDto(userEntity);
     }
 }
