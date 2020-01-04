@@ -34,7 +34,7 @@ const appRoutes: Routes = [
   {path: 'formations/:id', component: FormationsComponent, resolve: { formations: FormationResolver }, children: [
       {path: 'details', component: FormationDetailsComponent}
     ], canActivate: [AuthGuard]},
-  {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
