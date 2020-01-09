@@ -35,7 +35,7 @@ const appRoutes: Routes = [
       {path: 'details', component: FormationDetailsComponent}
     ], canActivate: [AuthGuard]},
   {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
+  {path: 'contact', component: ContactComponent},
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
