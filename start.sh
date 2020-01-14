@@ -7,16 +7,9 @@ then
 fi
 echo "docker-compose down"
 echo "Every email will be sent to $MAIL_RECEIVER"
-docker-compose down --rmi all
-#echo "cd api"
-#cd api
-#echo "mvn clean install"
-#mvn clean install
-echo "ng build"
-cd app
-ng build --aot --build-optimizer --prod
+#docker-compose down --rmi all
+docker-compose down
 echo "docker-compose up"
-cd ..
 export MAIL_RECEIVER=$MAIL_RECEIVER
 docker-compose up
 # tounga.franck@ng-itconsulting.com
