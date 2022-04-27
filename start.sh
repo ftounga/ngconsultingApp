@@ -11,7 +11,7 @@ echo "Every email will be sent to $MAIL_RECEIVER"
 docker-compose down
 echo "docker-compose up"
 export MAIL_RECEIVER=$MAIL_RECEIVER
-#docker-compose up
+docker-compose up
 # tounga.franck@ng-itconsulting.com
 # force rebuild all image
-docker-compose up --force-recreate --build
+#docker-compose up --force-recreate --build
