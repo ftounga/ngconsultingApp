@@ -7,3 +7,7 @@ sudo yum install jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+sudo mkfs -t ext4 /dev/xvdf
+sudo mkdir /jenkins-volume
+sudo mount /dev/xvdf /jenkins-volume/
