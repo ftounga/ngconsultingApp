@@ -5,6 +5,10 @@ pipeline {
          args '-u root:root -v /home/${USER}/.m2:/root/.m2'
       }
    }
+
+   environment {
+       dockerhub=credentials('dockerhub')
+   }
    stages{
       stage("build"){
          steps{
