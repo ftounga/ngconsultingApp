@@ -30,8 +30,7 @@ pipeline {
             echo 'deploy the binary ....'
             dir("api") {
                 sh "pwd"
-                sh "docker build -t ftounga/ngapp-api:1.0"
-                sh "docker push ftounga/ngapp-api:1.O"
+                sh "mvn compile jib:build"
             }
          }
       }
