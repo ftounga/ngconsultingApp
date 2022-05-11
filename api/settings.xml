@@ -131,7 +131,7 @@ under the License.
     </server>
     -->
     <server>
-        <id>registry.hub.docker.com</id>
+        <id>registry-1.docker.io</id>
         <username>francky007</username>
         <password>1309**Fa1990</password>
     </server>
