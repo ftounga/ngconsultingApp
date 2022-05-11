@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ngconsulting</groupId>
-	<artifactId>api</artifactId>
+	<artifactId>ng-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api</name>
 	<description>API project for NG-Consulting company</description>
@@ -106,6 +106,24 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<configuration>
+					<to>
+						<image>francky007/${project.artifactId}:${project.version}</image>
+					</to>
+					<from>
+						<image>openjdk:alpine</image>
+					</from>
+					<container>
+						<ports>
+							<port>8081</port>
+						</ports>
+					</container>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
