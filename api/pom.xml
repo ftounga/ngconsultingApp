@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ngconsulting</groupId>
 	<artifactId>ng-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>api</name>
 	<description>API project for NG-Consulting company</description>
 
