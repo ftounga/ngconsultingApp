@@ -30,7 +30,7 @@ pipeline {
             echo 'deploy the binary ....'
             dir("api") {
                 sh "pwd"
-                sh "mvn compile jib:build"
+                sh "mvn -s settings.xml compile jib:build"
             }
          }
       }
