@@ -9,6 +9,8 @@ sudo yum install nodejs
 echo '************************************** Install git and clone ngconsultingApp **********************************'
 sudo yum install git
 mkdir /home/${USER}/dev
+mkdir /home/${USER}/dev/tools/jenkins -p
+sudo chown jenkins:jenkins /home/${USER}/dev/tools/jenkins/
 cd /home/${USER}/dev
 git clone https://github.com/ftounga/ngconsultingApp.git
 
@@ -38,6 +40,7 @@ echo '**************** Install java and download maven libraries ***************
 sudo amazon-linux-extras install java-openjdk11
 sudo alternatives --config java
 echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.13.0.8-1.amzn2.0.3.x86_64' >> /home/ec2-user/.bashrc
+echo 'export JENKINS_HOME=/home/ec2-user/dev/tools/jenkins' >> /home/ec2-user/.bashrc
 source ~/.bashrc
 
 cd /home/${USER}/dev/ngconsultingApp/api
