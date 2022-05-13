@@ -7,4 +7,4 @@ COPY . /usr/src/api
 RUN mvn clean install
 WORKDIR /usr/src/api/target
 EXPOSE 8080
-CMD ["java", "-jar", "api-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "ng-api-0.0.2-SNAPSHOT.jar"]

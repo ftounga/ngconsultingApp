@@ -10,7 +10,6 @@ echo '************************************** Install git and clone ngconsultingA
 sudo yum install git
 mkdir /home/${USER}/dev
 mkdir /home/${USER}/dev/tools/jenkins -p
-sudo chown jenkins:jenkins /home/${USER}/dev/tools/jenkins/
 cd /home/${USER}/dev
 git clone https://github.com/ftounga/ngconsultingApp.git
 
@@ -25,9 +24,9 @@ sudo yum install docker
 wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)
 sudo mv docker-compose-$(uname -s)-$(uname -m) /usr/local/bin/docker-compose
 sudo chmod -v +x /usr/local/bin/docker-compose
+sudo usermod -aG docker ec2-user
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
-sudo usermod -aG docker ec2-user
 
 # Install Maven
 echo '********************* Install Maven ***********************'
@@ -54,8 +53,10 @@ sudo wget –O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-st
 sudo mv jenkins.repo /etc/yum.repos.d/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 sudo yum install jenkins
-sudo systemctl start jenkins
+sudo chown jenkins:jenkins /home/${USER}/dev/tools/jenkins/
+sudo usermod -aG docker jenkins
 sudo systemctl enable jenkins
+sudo systemctl start jenkins
 
 echo  '************************************* Retrieve jenkins password ***********************************************'
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
