@@ -58,5 +58,14 @@ sudo usermod -aG docker jenkins
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 
+
+echo  '************************************* Cron job jenkins backup ***********************************************'
+mkdir -p /home/${USER}/dev/tools/cron/
+cd /home/${USER}/dev/tools/cron/
+touch backup-jenkins.sh
+echo 'sudo cp -R /var/lib/jenkins/* /home/ec2-user/dev/tools/jenkins/' > backup-jenkins.sh
+sudo -i
+echo '0 8 * * * sh /home/ec2-user/dev/tools/cron/backup-jenkins.sh' > /var/spool/cron/ec2-user
+
 echo  '************************************* Retrieve jenkins password ***********************************************'
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
