@@ -1,0 +1,48 @@
+def CODE_VERSION
+pipeline {
+    agent any
+    environment {
+        HOME = "${WORKSPACE}"
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    }
+    stages {
+        stage('Node:Build') {
+            agent {
+                docker {
+                    image 'node:12.2.0
+                    args ' -u root:sudo'
+                    reuseNode true
+                   }
+                }
+            steps {
+                    sh ' echo "Install module"'
+                    sh "npm install -g @angular/cli@7.3.9"
+                    sh "npm update"
+                    sh "npm install"
+                    sh 'echo "Build module"'
+                    sh "ng build --aot --build-optimizer --prod"
+                }
+                        }
+        stage('Docker: Build') {
+            steps {
+                sh "cd  ${workspace}/app/dist/ngconsulting-app"
+                sh 'echo "in dist :"'
+                sh "ls -l"
+                sh "cd ${workspace}/dist/ngconsulting-app \n tar cvf ${workspace}/docker/ngconsulting-app.tar ./"
+                sh "cd ${workspace}/docker \n docker build --rm -t ngconsulting-app:${CODE_VERSION} ."
+                sh "docker tag ngconsulting-app:${CODE_VERSION} francky007/ngconsulting-app:0.1.0
+                 }
+            }
+        stage ("Docker : Login"){
+            steps {
+                sh "docker login --username=sps-ci1 --password=heavyheart nexus.codeo.intranet.justice.gouv.fr:5004"
+            }
+        }
+
+        stage ("Docker : Push"){
+            steps{
+                sh "docker push francky007/ngconsulting-app:0.1.0"
+            }
+        }
+    }
+}
